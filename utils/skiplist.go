@@ -7,7 +7,7 @@ import (
 )
 
 const (
-	defaultMaxLevel = 48//defauaslkfjalksjfaslkjfaslkj
+	defaultMaxLevel = 48
 )
 
 type SkipList struct {
