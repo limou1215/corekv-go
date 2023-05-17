@@ -3,7 +3,7 @@ package utils
 import (
 	"math/rand"
 	"sync"
-
+	"bytes"
 	"github.com/hardcore-os/corekv/utils/codec"
 )
 
@@ -122,7 +122,7 @@ func (list *SkipList) calcScore(key []byte) (score float64) { // 计算分值 �
 func (list *SkipList) compare(score float64, key []byte, next *Element) int { // 比较节点  分数加快查询
 	//implement me here!!!
 	if score == next.score {
-		return 0
+		return bytes.Compare(key, next.entry.Key)
 	}
 	if score < next.score { // 和普通查找一样 如果当前节点小于下一个节点仍然没有找到
 		return -1
